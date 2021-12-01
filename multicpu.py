@@ -559,7 +559,7 @@ def main(argv):
         random_seed=random_seed,
         is_prokaryote=is_prokaryote)
 
-  if __name__ == '__main__':
+if __name__ == '__main__':
   flags.mark_flags_as_required([
       'fasta_paths',
       'output_dir',
