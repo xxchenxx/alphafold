@@ -455,8 +455,8 @@ def main(argv):
   FLAGS.pdb70_database_path = os.path.join(FLAGS.data_dir, 'pdb70', 'pdb70')
 
   # Path to the PDB seqres database for use by hmmsearch.
-  FLAGS.pdb_seqres_database_path = os.path.join(
-      FLAGS.data_dir, 'pdb_seqres', 'pdb_seqres.txt')
+  #FLAGS.pdb_seqres_database_path = os.path.join(
+  #    FLAGS.data_dir, 'pdb_seqres', 'pdb_seqres.txt')
 
   # Path to a directory with template mmCIF structures, each named <pdb_id>.cif.
   FLAGS.template_mmcif_dir = os.path.join(FLAGS.data_dir, 'pdb_mmcif', 'mmcif_files')
