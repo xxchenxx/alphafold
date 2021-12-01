@@ -431,8 +431,8 @@ def main(argv):
       FLAGS.data_dir, 'uniref90', 'uniref90.fasta')
 
   # Path to the Uniprot database for use by JackHMMER.
-  FLAGS.uniprot_database_path = os.path.join(
-      FLAGS.data_dir, 'uniprot', 'uniprot.fasta')
+  #FLAGS.uniprot_database_path = os.path.join(
+  #    FLAGS.data_dir, 'uniprot', 'uniprot.fasta')
 
   # Path to the MGnify database for use by JackHMMER.
   FLAGS.mgnify_database_path = os.path.join(
