@@ -130,6 +130,7 @@ class Jackhmmer:
       logging.info('Launching subprocess "%s"', ' '.join(cmd))
       process = subprocess.Popen(
           cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      return process, query_tmp_dir
       with utils.timing(
           f'Jackhmmer ({os.path.basename(database_path)}) query'):
         _, stderr = process.communicate()

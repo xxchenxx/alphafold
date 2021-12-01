@@ -28,7 +28,7 @@ def tmpdir_manager(base_dir: Optional[str] = None):
   try:
     yield tmpdir
   finally:
-    shutil.rmtree(tmpdir, ignore_errors=True)
+    pass
 
 
 @contextlib.contextmanager

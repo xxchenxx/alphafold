@@ -79,12 +79,14 @@ class HHSearch:
       cmd = [self.binary_path,
              '-i', input_path,
              '-o', hhr_path,
-             '-maxseq', str(self.maxseq)
+             '-maxseq', str(self.maxseq),
+             '-cpu', str(8)
              ] + db_cmd
 
       logging.info('Launching subprocess "%s"', ' '.join(cmd))
       process = subprocess.Popen(
           cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+          
       with utils.timing('HHsearch query'):
         stdout, stderr = process.communicate()
         retcode = process.wait()
