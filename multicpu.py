@@ -444,8 +444,8 @@ def main(argv):
       'bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt')
 
   # Path to the Small BFD database for use by JackHMMER.
-  FLAGS.small_bfd_database_path = os.path.join(
-      FLAGS.data_dir, 'small_bfd', 'bfd-first_non_consensus_sequences.fasta')
+  #FLAGS.small_bfd_database_path = os.path.join(
+  #    FLAGS.data_dir, 'small_bfd', 'bfd-first_non_consensus_sequences.fasta')
 
   # Path to the Uniclust30 database for use by HHblits.
   FLAGS.uniclust30_database_path = os.path.join(
