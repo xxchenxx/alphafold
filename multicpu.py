@@ -530,7 +530,7 @@ def main(argv):
         release_dates_path=None,
         obsolete_pdbs_path=FLAGS.obsolete_pdbs_path)
 
-  monomer_data_pipeline = pipeline.DataPipeline(
+  monomer_data_pipeline = DataPipeline(
       jackhmmer_binary_path=FLAGS.jackhmmer_binary_path,
       hhblits_binary_path=FLAGS.hhblits_binary_path,
       uniref90_database_path=FLAGS.uniref90_database_path,
