@@ -589,10 +589,6 @@ def main(argv):
         fasta_name=fasta_name,
         output_dir_base=FLAGS.output_dir,
         data_pipeline=data_pipeline,
-        model_runners=model_runners,
-        amber_relaxer=amber_relaxer,
-        benchmark=FLAGS.benchmark,
-        random_seed=random_seed,
         is_prokaryote=is_prokaryote)
 
 if __name__ == '__main__':
