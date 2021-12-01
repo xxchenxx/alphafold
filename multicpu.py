@@ -558,3 +558,17 @@ def main(argv):
         benchmark=FLAGS.benchmark,
         random_seed=random_seed,
         is_prokaryote=is_prokaryote)
+
+  if __name__ == '__main__':
+  flags.mark_flags_as_required([
+      'fasta_paths',
+      'output_dir',
+      'data_dir',
+      'uniref90_database_path',
+      'mgnify_database_path',
+      'template_mmcif_dir',
+      'max_template_date',
+      'obsolete_pdbs_path',
+  ])
+
+  app.run(main)
