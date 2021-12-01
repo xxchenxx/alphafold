@@ -427,6 +427,42 @@ def main(argv):
     if not FLAGS[f'{tool_name}_binary_path'].value:
       raise ValueError(f'Could not find path to the "{tool_name}" binary. Make '
                        'sure it is installed on your system.')
+  FLAGS.uniref90_database_path = os.path.join(
+      FLAGS.data_dir, 'uniref90', 'uniref90.fasta')
+
+  # Path to the Uniprot database for use by JackHMMER.
+  FLAGS.uniprot_database_path = os.path.join(
+      FLAGS.data_dir, 'uniprot', 'uniprot.fasta')
+
+  # Path to the MGnify database for use by JackHMMER.
+  FLAGS.mgnify_database_path = os.path.join(
+      FLAGS.data_dir, 'mgnify', 'mgy_clusters_2018_12.fa')
+
+  # Path to the BFD database for use by HHblits.
+  FLAGS.bfd_database_path = os.path.join(
+      FLAGS.data_dir, 'bfd',
+      'bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt')
+
+  # Path to the Small BFD database for use by JackHMMER.
+  FLAGS.small_bfd_database_path = os.path.join(
+      FLAGS.data_dir, 'small_bfd', 'bfd-first_non_consensus_sequences.fasta')
+
+  # Path to the Uniclust30 database for use by HHblits.
+  FLAGS.uniclust30_database_path = os.path.join(
+      FLAGS.data_dir, 'uniclust30', 'uniclust30_2018_08', 'uniclust30_2018_08')
+
+  # Path to the PDB70 database for use by HHsearch.
+  FLAGS.pdb70_database_path = os.path.join(FLAGS.data_dir, 'pdb70', 'pdb70')
+
+  # Path to the PDB seqres database for use by hmmsearch.
+  FLAGS.pdb_seqres_database_path = os.path.join(
+      FLAGS.data_dir, 'pdb_seqres', 'pdb_seqres.txt')
+
+  # Path to a directory with template mmCIF structures, each named <pdb_id>.cif.
+  FLAGS.template_mmcif_dir = os.path.join(FLAGS.data_dir, 'pdb_mmcif', 'mmcif_files')
+
+  # Path to a file mapping obsolete PDB IDs to their replacements.
+  FLAGS.obsolete_pdbs_path = os.path.join(FLAGS.data_dir, 'pdb_mmcif', 'obsolete.dat')
 
   use_small_bfd = FLAGS.db_preset == 'reduced_dbs'
   _check_flag('small_bfd_database_path', 'db_preset',
@@ -564,11 +600,7 @@ if __name__ == '__main__':
       'fasta_paths',
       'output_dir',
       'data_dir',
-      'uniref90_database_path',
-      'mgnify_database_path',
-      'template_mmcif_dir',
       'max_template_date',
-      'obsolete_pdbs_path',
   ])
 
   app.run(main)
