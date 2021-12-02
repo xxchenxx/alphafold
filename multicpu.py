@@ -217,9 +217,9 @@ class DataPipeline:
     with open(pdb_hits_out_path, 'w') as f:
       f.write(pdb_templates_result)
 
-    uniref90_msa = parsers.parse_stockholm(jackhmmer_uniref90_result['sto'])
+    uniref90_msa = parsers.parse_stockholm(jackhmmer_uniref90_result)
     uniref90_msa = uniref90_msa.truncate(max_seqs=self.uniref_max_hits)
-    mgnify_msa = parsers.parse_stockholm(jackhmmer_mgnify_result['sto'])
+    mgnify_msa = parsers.parse_stockholm(jackhmmer_mgnify_result)
     mgnify_msa = mgnify_msa.truncate(max_seqs=self.mgnify_max_hits)
 
     pdb_template_hits = self.template_searcher.get_template_hits(
