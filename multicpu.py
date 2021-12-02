@@ -25,6 +25,7 @@ from alphafold.data.tools import hhblits
 from alphafold.data.tools import hhsearch
 from alphafold.data.tools import hmmsearch
 from alphafold.data.tools import jackhmmer
+from alphafold.data.tools import utils
 import numpy as np
 
 # Internal import (7716).
@@ -158,9 +159,10 @@ class DataPipeline:
     jackhmmer_uniref90_process, jupdir = self.jackhmmer_uniref90_runner.query(input_fasta_path)
     jackhmmer_mgnify_process, jmpdir = self.jackhmmer_mgnify_runner.query(input_fasta_path)
     hhblits_bfd_uniclust_process, hbudir = self.hhblits_bfd_uniclust_runner.query(input_fasta_path)
-
-    for p in [jackhmmer_uniref90_process, jackhmmer_mgnify_process, hhblits_bfd_uniclust_process]:
-      p.wait()
+    with utils.timing('query'):
+      for p in [jackhmmer_uniref90_process, jackhmmer_mgnify_process, hhblits_bfd_uniclust_process]:
+        p.wait()
+    
     jackhmmer_uniref90_result = open(os.path.join(jupdir, 'output.sto'), 'r').read()
     uniref90_out_path = os.path.join(msa_output_dir, 'uniref90_hits.sto')
     with open(uniref90_out_path, 'w') as f:
@@ -192,7 +194,7 @@ class DataPipeline:
     with open(bfd_out_path, 'w') as f:
       f.write( hhblits_bfd_uniclust_result)
 
-    msa_for_templates = jackhmmer_uniref90_result['sto']
+    msa_for_templates = jackhmmer_uniref90_result
     msa_for_templates = parsers.truncate_stockholm_msa(
         msa_for_templates, max_sequences=self.uniref_max_hits)
     msa_for_templates = parsers.deduplicate_stockholm_msa(
