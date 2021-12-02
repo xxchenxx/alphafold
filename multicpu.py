@@ -167,12 +167,13 @@ class DataPipeline:
     uniref90_out_path = os.path.join(msa_output_dir, 'uniref90_hits.sto')
     with open(uniref90_out_path, 'w') as f:
       f.write(jackhmmer_uniref90_result)
-
+    shutil.rmtree(jupdir)
     jackhmmer_mgnify_result = open(os.path.join(jmpdir, 'output.sto'), 'r').read()
     mgnify_out_path = os.path.join(msa_output_dir, 'mgnify_hits.sto')
     with open(mgnify_out_path, 'w') as f:
       f.write(jackhmmer_mgnify_result)
-    
+    shutil.rmtree(jmpdir)
+
     '''
     if self._use_small_bfd:
       bfd_out_path = os.path.join(msa_output_dir, 'small_bfd_hits.sto')
@@ -193,7 +194,7 @@ class DataPipeline:
     bfd_out_path = os.path.join(msa_output_dir, 'bfd_uniclust_hits.a3m')
     with open(bfd_out_path, 'w') as f:
       f.write( hhblits_bfd_uniclust_result)
-
+    shutil.rmtree(hbudir)
     msa_for_templates = jackhmmer_uniref90_result
     msa_for_templates = parsers.truncate_stockholm_msa(
         msa_for_templates, max_sequences=self.uniref_max_hits)
