@@ -265,7 +265,7 @@ def predict_structure(
   output_dir = os.path.join(output_dir_base, fasta_name)
   features_output_path = os.path.join(output_dir, 'features.pkl')
   with open(features_output_path, 'rb') as f:
-    feature_dict = pickle.load(f, protocol=4)
+    feature_dict = pickle.load(f)
   
 
   unrelaxed_pdbs = {}
