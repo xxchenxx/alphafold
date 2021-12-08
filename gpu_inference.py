@@ -254,7 +254,7 @@ def predict_structure(
     fasta_name: str,
     output_dir_base: str,
     data_pipeline,
-    model_runners: Dict[str, model.RunModel],
+    model_runners,
     amber_relaxer: relax.AmberRelaxation,
     benchmark: bool,
     random_seed: int,
