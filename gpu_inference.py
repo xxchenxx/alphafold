@@ -255,7 +255,7 @@ def predict_structure(
     output_dir_base: str,
     data_pipeline,
     model_runners,
-    amber_relaxer: relax.AmberRelaxation,
+    amber_relaxer,
     benchmark: bool,
     random_seed: int,
     is_prokaryote: Optional[bool] = None):
